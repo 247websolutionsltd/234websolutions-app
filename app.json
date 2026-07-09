@@ -1,11 +1,12 @@
 {
   "expo": {
-    "name": "247websolutions",
-    "slug": "247websolutions",
+
+    "name": "234websolutions",
+    "slug": "234websolutions",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "247websolutions",
+    "scheme": "234websolutions",
     "userInterfaceStyle": "automatic",
     "ios": {
       "icon": "./assets/expo.icon"

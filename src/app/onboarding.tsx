@@ -59,7 +59,7 @@ const OnboardingScreen = () => {
       />
       <Paginator data={onboardingData} currentIndex={currentIndex} />
 
-      <Button onPress={scrollToNext} isLoading={isLoading}>
+      <Button onPress={scrollToNext} isLoading={isLoading} style={{marginHorizontal:16}}>
         {currentIndex === onboardingData.length - 1 ? "Get Started" : "Next"}
       </Button>
     </SafeAreaView>
