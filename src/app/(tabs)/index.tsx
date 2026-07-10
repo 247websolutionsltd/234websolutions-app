@@ -1,41 +1,69 @@
 import Container from "@/components/container";
-import Card from "@/components/service-card";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import Service from "@/components/service-card2";
+import { ThemedText } from "@/components/themed-text";
+import Work from "@/components/work";
+import { Spacing } from "@/constants/theme";
+import { projects, services1 } from "@/data/projects-data";
+import { useTheme } from '@/hooks/use-theme';
+import { styles } from "@/style/global-styles";
+import { Image } from "expo-image";
 import { router } from "expo-router";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { ArrowRight, Info } from 'lucide-react-native';
+import { TouchableOpacity, View } from "react-native";
 
-export default function Index(){
-  const handlePress = (service:string, message:string)=>{
-    router.push({
-      pathname: "/gig",
-      params: { service, message }
-    });
-  }
+export default function HomeScreen(){
+  const theme = useTheme();
+
   return(
-    <Container>
+    <Container style={{paddingHorizontal:Spacing.three}}>
       <View>
-        <View style={styles.top}>
-          <TouchableOpacity onLongPress={()=>AsyncStorage.setItem('onboarded', 'false')}>
-            <Text style={styles.topText}>247 Websolutions</Text>
+        <View style={[styles.rowSpace, styles.top]}>
+          <View style={{maxWidth:'70%'}}>
+            <View style={styles.row}>
+              <Image source={require('../../../assets/images/logo.jpeg')} style={styles.logo}/>
+              <ThemedText type="subtitle">247Websolutions</ThemedText>
+            </View>
+            <ThemedText type="medium">Websites, apps and digital marketing for your business.</ThemedText>
+          </View>
+          <TouchableOpacity style={[styles.row, {top:Spacing.two}]} onPress={()=>router.navigate('/about')}>
+            <Info size={18} />
+            <ThemedText type="medium"> About</ThemedText>
+          </TouchableOpacity>
+        </View>
+        <View style={[styles.cardCenter, {padding:Spacing.five}]}>
+          <ThemedText type="large">Have a project in mind?</ThemedText>
+          <ThemedText style={{textAlign:'center'}}>Tell us about it and we'll get back to you.</ThemedText>
+          <TouchableOpacity style={[styles.row, {padding:Spacing.two}]}>
+            <ThemedText type="medium">Get a quote</ThemedText>
+            <ArrowRight size={18}/>
           </TouchableOpacity>
         </View>
         <View>
-          <Card name="Software Development" onPress={()=>handlePress('Mobile Development', 'Start building your software today')}/>
-          <Card name="E-commerce" onPress={()=>handlePress('E-commerce', 'Get started on your E-commerce app')}/>
-          <Card name="Website Design & Development" onPress={()=>handlePress('Website Design & Development', 'Create your unique website today')}/>
-          <Card name="Mobile Application" onPress={()=>handlePress('Mobile Application', 'Create your dream app today')}/>
+          <ThemedText style={{padding:5}}>What we do</ThemedText>
+          <View style={styles.services}>
+            {
+              services1.map(({title, icon}, index)=>(
+              <Service title={title} style={{backgroundColor:theme['container'], }} icon={icon} key={index}/>
+            ))
+            }
+          </View>
+        </View>
+        <View style={{marginTop:Spacing.four}}>
+          <View style={styles.rowSpace}>
+            <ThemedText>Recent Work</ThemedText>
+            <TouchableOpacity onPress={()=>router.navigate('/(tabs)/work')}>
+              <ThemedText type="medium" style={{color:'blue'}}>See all</ThemedText>
+            </TouchableOpacity>
+          </View>
+          <View>
+            {
+              projects.map(({title,}, index)=>(
+              <Work title={title} style={{backgroundColor:theme['container']}} key={index}/>
+            ))
+            }
+          </View>
         </View>
       </View>
     </Container>
   )
 }
-
-const styles = StyleSheet.create({
-  top:{
-    alignItems:'center'
-  },
-  topText:{
-    fontWeight:600,
-    fontSize:21,
-  }
-});

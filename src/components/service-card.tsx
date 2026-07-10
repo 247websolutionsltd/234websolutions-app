@@ -1,28 +1,28 @@
-import { ChevronRight } from 'lucide-react-native';
-import { StyleSheet, Text, TouchableOpacity, TouchableOpacityProps } from "react-native";
+import Icon from "@/constants/icons";
+import { styles } from "@/style/global-styles";
+import * as icons from 'lucide-react-native';
+import { ChevronRight } from "lucide-react-native";
+import { TouchableOpacity, TouchableOpacityProps, View } from "react-native";
+import { ThemedText } from "./themed-text";
 
-interface CardProps extends TouchableOpacityProps{
-    name:string;
+interface ServiceProps extends TouchableOpacityProps{
+    title: string;
+    description: string;
+    icon:keyof typeof icons;
 }
-export default function Card({name, onPress}:CardProps){
+export default function Service({ title, description, icon, onPress, style }: ServiceProps){
     return(
-    <TouchableOpacity style={styles.container} onPress={onPress}>
-        <Text style={styles.text}>{name}</Text>
-        <ChevronRight size={25}/>
-    </TouchableOpacity>
+        <TouchableOpacity style={[styles.serviceCard, style]} onPress={onPress}>
+            <View style={styles.cardIcon}>
+                <Icon name={icon} size={22}/>
+            </View>
+            <View style={{alignSelf:'flex-start', maxWidth:'56%'}}>
+                <ThemedText style={{}}>{title}</ThemedText>
+                 <ThemedText type="medium" style={{fontWeight:400, }}>{description}</ThemedText>
+            </View>
+            <View style={styles.cardIcon}>
+                <ChevronRight size={25}/>
+            </View>
+        </TouchableOpacity>
     )
 }
-
-const styles = StyleSheet.create({
-    container:{
-        flexDirection:'row',
-        alignItems:'center',
-        justifyContent:'space-between',
-        paddingVertical:20,
-        paddingHorizontal:20
-    },
-    text:{
-        fontSize:18,
-        fontWeight:500
-    }
-});

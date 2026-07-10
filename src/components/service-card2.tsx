@@ -1,35 +1,20 @@
-import { StyleSheet, Text, View } from "react-native";
+import Icon from "@/constants/icons";
+import { styles } from "@/style/global-styles";
+import * as icons from 'lucide-react-native';
+import { TouchableOpacity, TouchableOpacityProps, View } from "react-native";
+import { ThemedText } from "./themed-text";
 
-interface CardProps {
-    heading:string;
-    subheading:string;
-    backgroundColor: string;
+interface ServiceProps extends TouchableOpacityProps{
+    title:string;
+    icon:keyof typeof icons;
 }
-export default function Card({heading, subheading, backgroundColor}:CardProps){
+export default function Service({title, icon, style}:ServiceProps){
     return(
-    <View style={[styles.container, {backgroundColor:backgroundColor}]}>
-        <Text style={[styles.text1, {color:backgroundColor === '#e5e7eb' ? '#000' : "#FFF"}]}>{heading}</Text>
-        <Text style={[styles.text2, {color:backgroundColor === '#e5e7eb' ? '#000' : "#FFF"}]}>{subheading}</Text>
-    </View>
+        <View style={ {width:'50%', padding:5, } }>
+            <TouchableOpacity style={[styles.cardCenter, styles.service, style]}>
+                <Icon name={icon} size={22}/>
+                <ThemedText style={{marginTop:8}}>{title}</ThemedText>
+            </TouchableOpacity>
+        </View>
     )
 }
-
-const styles = StyleSheet.create({
-    container:{
-        alignItems:'center',
-        justifyContent:'center',
-        padding:20,
-        margin:15,
-        borderRadius:12
-    },
-    text1:{
-        fontSize:20,
-        fontWeight:600,
-        textAlign:'center'
-    },
-    text2:{
-        fontSize:16,
-        fontWeight:400,
-        textAlign:'center'
-    }
-});

@@ -1,6 +1,7 @@
+import { Spacing } from '@/constants/theme';
 import { router } from 'expo-router';
 import { ChevronLeft } from 'lucide-react-native';
-import { StyleSheet, TouchableOpacity } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { ThemedText } from './themed-text';
 
 interface TopProps{
@@ -8,10 +9,12 @@ interface TopProps{
 }
 export default function Top({text}:TopProps){
     return(
-        <TouchableOpacity style={styles.container} onPress={()=>router.back()}>
-            <ChevronLeft size={25} style={styles.left}/>
+        <View style={styles.container}>
+            <TouchableOpacity onPress={()=>router.back()} style={{padding:Spacing.three, paddingLeft:0}}>
+                <ChevronLeft size={25} />
+            </TouchableOpacity>
             <ThemedText style={styles.text} type='subtitle'>{text}</ThemedText>
-        </TouchableOpacity>
+        </View>
     )
 }
 
@@ -19,13 +22,11 @@ const styles = StyleSheet.create({
     container:{
         flexDirection:'row',
         alignItems:'center',
-        paddingHorizontal:8
     },
     left:{
         
     },
     text:{
         fontSize:22,
-        marginLeft:10
     }
 });

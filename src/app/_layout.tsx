@@ -54,7 +54,14 @@ export default function RootLayout() {
         />
 
         <Stack.Screen
-          name="gig"
+          name="detail"
+          options={{
+            headerShown:false
+          }}
+        />
+
+        <Stack.Screen
+          name="about"
           options={{
             headerShown:false
           }}

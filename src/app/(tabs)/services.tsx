@@ -1,26 +1,38 @@
 import Container from "@/components/container";
-import Card from "@/components/service-card2";
+import Service from "@/components/service-card";
+import Top from "@/components/top2";
+import { Spacing } from "@/constants/theme";
+import { services2 } from "@/data/projects-data";
+import { useTheme } from "@/hooks/use-theme";
+import { router } from "expo-router";
 import { View } from "react-native";
 
-export default function Services(){
+export default function ServicesScreen(){
+    const theme = useTheme();
     return(
-        <Container style={{justifyContent:'center'}} >
+        <Container style={{paddingHorizontal:Spacing.three}}>
             <View>
-                <Card 
-                    heading="Web Development"
-                    subheading="We create stunning, responsive websites tailored to your business needs."
-                    backgroundColor="#4B5563"
-                /> 
-                <Card 
-                    heading="E-Commerce Solutions"
-                    subheading="Build and manage your online store with our custom e-commerce platforms."
-                    backgroundColor="#e5e7eb"
-                /> 
-                <Card 
-                    heading="Custom Applications"
-                    subheading="Get tailored web applications designed to solve your unique challenges."
-                    backgroundColor="#4B5563"
-                /> 
+                <Top
+                    title="Services"
+                    description="Tap a service to see details or request it."
+                />
+                 <View style={{marginTop:Spacing.three}}>
+                    {
+                        services2.map(({title, sub, description, icon, features}, index)=>(
+                            <Service
+                                title={title}
+                                description={sub}
+                                onPress={()=>router.navigate({
+                                    pathname: '/detail',
+                                    params: { title, description, icon, features:JSON.stringify(features) }
+                                })}
+                                style={{backgroundColor:theme['container']}}
+                                icon={icon}
+                                key={index}
+                            />
+                        ))
+                    }
+                 </View>
             </View>
         </Container>
     )
