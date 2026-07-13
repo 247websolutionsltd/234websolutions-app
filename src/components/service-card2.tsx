@@ -2,18 +2,30 @@ import Icon from "@/constants/icons";
 import { styles } from "@/style/global-styles";
 import * as icons from 'lucide-react-native';
 import { TouchableOpacity, TouchableOpacityProps, View } from "react-native";
+import Whatsapp from '../../assets/expo.icon/whatsapp.svg';
 import { ThemedText } from "./themed-text";
 
 interface ServiceProps extends TouchableOpacityProps{
     title:string;
-    icon:keyof typeof icons;
+    icon?:keyof typeof icons;
+    width: string | number;
+    padding?: string | number;
+    top?: string;
 }
-export default function Service({title, icon, style, onPress}:ServiceProps){
+export default function Service({title, icon, style, width='auto', padding=0, top, onPress}:ServiceProps){
     return(
-        <View style={ {width:'50%', padding:5, } }>
+        <View style={ {width:width, padding:padding } }>
             <TouchableOpacity style={[styles.cardCenter, styles.service, style]} onPress={onPress}>
-                <Icon name={icon} size={22}/>
-                <ThemedText style={{marginTop:8}}>{title}</ThemedText>
+                {
+                    icon === "Whatsapp" ?
+                    <Whatsapp width={22} height={22}/>
+                    :
+                    top ?
+                    <ThemedText type="subtitle">{top}</ThemedText>
+                    :
+                    <Icon name={icon} size={22}/>
+                }  
+                <ThemedText type={top? "medium" : "default"} style={{marginTop:8, textAlign:'center'}}>{title}</ThemedText>
             </TouchableOpacity>
         </View>
     )

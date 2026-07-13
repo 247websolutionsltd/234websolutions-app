@@ -15,7 +15,6 @@ export default function HomeScreen(){
   const theme = useTheme();
   return(
     <Container style={{paddingHorizontal:Spacing.three}}>
-      <View>
         <View style={[styles.rowSpace, styles.top]}>
           <View style={{maxWidth:'70%'}}>
             <View style={styles.row}>
@@ -47,6 +46,8 @@ export default function HomeScreen(){
               style={{backgroundColor:theme['container'], }} 
               icon={icon} 
               key={index}
+              width={'50%'}
+              padding={5}
               onPress={()=>router.navigate({
                 pathname: '/detail',
                 params: { title, description, icon, features:JSON.stringify(features), timeline }
@@ -71,7 +72,6 @@ export default function HomeScreen(){
             }
           </View>
         </View>
-      </View>
     </Container>
   )
 }

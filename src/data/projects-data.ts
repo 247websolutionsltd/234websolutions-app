@@ -133,6 +133,22 @@ export const services2 = [
     },
 ]
 
+export const socials = [
+    {
+        title:"Whatsapp",
+        icon:"Whatsapp"
+    },
+    {
+        title:"Call us",
+        icon:"Phone"
+        
+    },
+    {
+        title:"Email",
+        icon:"Mail"
+        
+    }
+]
 
 
 

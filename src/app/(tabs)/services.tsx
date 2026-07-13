@@ -11,7 +11,6 @@ export default function ServicesScreen(){
     const theme = useTheme();
     return(
         <Container style={{paddingHorizontal:Spacing.three}}>
-            <View>
                 <Top
                     title="Services"
                     description="Tap a service to see details or request it."
@@ -33,7 +32,6 @@ export default function ServicesScreen(){
                         ))
                     }
                  </View>
-            </View>
         </Container>
     )
 }

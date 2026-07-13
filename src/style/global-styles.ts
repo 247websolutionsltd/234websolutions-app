@@ -57,5 +57,18 @@ export const styles = StyleSheet.create({
         borderRadius:10,
         padding:Spacing.three,
         marginVertical:Spacing.two
+    },
+    socials:{
+        flexDirection:'row',
+        columnGap:'3%',
+        marginVertical:Spacing.three
+    },
+    inputView:{
+        borderWidth:1,
+        borderColor:"#00000030",
+        borderRadius:10,
+        marginTop:Spacing.one,
+        padding:Spacing.two
+
     }
 });
