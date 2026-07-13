@@ -7,7 +7,7 @@ interface ContainerProps extends SafeAreaViewProps{
 export default function Container({children, backgroundColor='#FFF', style, edges=['top']}:ContainerProps){
     return(
         <SafeAreaView style={{flex:1, backgroundColor}} edges={edges}>
-            <ScrollView contentContainerStyle={[{flex:1}, style]} style={{flexGrow:1}} showsVerticalScrollIndicator={false}>
+            <ScrollView contentContainerStyle={[{flexGrow:1}, style]} showsVerticalScrollIndicator={false}>
                 {children}
             </ScrollView>
         </SafeAreaView>

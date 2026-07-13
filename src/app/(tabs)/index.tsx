@@ -13,7 +13,6 @@ import { TouchableOpacity, View } from "react-native";
 
 export default function HomeScreen(){
   const theme = useTheme();
-
   return(
     <Container style={{paddingHorizontal:Spacing.three}}>
       <View>
@@ -42,8 +41,17 @@ export default function HomeScreen(){
           <ThemedText style={{padding:5}}>What we do</ThemedText>
           <View style={styles.services}>
             {
-              services1.map(({title, icon}, index)=>(
-              <Service title={title} style={{backgroundColor:theme['container'], }} icon={icon} key={index}/>
+              services1.map(({title, icon, description, features, timeline}, index)=>(
+              <Service 
+              title={title} 
+              style={{backgroundColor:theme['container'], }} 
+              icon={icon} 
+              key={index}
+              onPress={()=>router.navigate({
+                pathname: '/detail',
+                params: { title, description, icon, features:JSON.stringify(features), timeline }
+              })}
+              />
             ))
             }
           </View>

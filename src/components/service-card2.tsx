@@ -8,10 +8,10 @@ interface ServiceProps extends TouchableOpacityProps{
     title:string;
     icon:keyof typeof icons;
 }
-export default function Service({title, icon, style}:ServiceProps){
+export default function Service({title, icon, style, onPress}:ServiceProps){
     return(
         <View style={ {width:'50%', padding:5, } }>
-            <TouchableOpacity style={[styles.cardCenter, styles.service, style]}>
+            <TouchableOpacity style={[styles.cardCenter, styles.service, style]} onPress={onPress}>
                 <Icon name={icon} size={22}/>
                 <ThemedText style={{marginTop:8}}>{title}</ThemedText>
             </TouchableOpacity>
