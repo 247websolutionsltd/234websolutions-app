@@ -6,6 +6,7 @@ import { Spacing } from "@/constants/theme";
 import { projects, services1 } from "@/data/projects-data";
 import { useTheme } from '@/hooks/use-theme';
 import { styles } from "@/style/global-styles";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Image } from "expo-image";
 import { router } from "expo-router";
 import { ArrowRight, Info } from 'lucide-react-native';
@@ -23,7 +24,7 @@ export default function HomeScreen(){
             </View>
             <ThemedText type="medium">Websites, apps and digital marketing for your business.</ThemedText>
           </View>
-          <TouchableOpacity style={[styles.row, {top:Spacing.two}]} onPress={()=>router.navigate('/about')}>
+          <TouchableOpacity style={[styles.row, {top:Spacing.two}]} onPress={()=>router.navigate('/about')} onLongPress={()=>AsyncStorage.setItem('onboarded', 'false')}>
             <Info size={18} />
             <ThemedText type="medium"> About</ThemedText>
           </TouchableOpacity>

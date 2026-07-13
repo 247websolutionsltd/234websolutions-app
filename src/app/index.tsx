@@ -1,0 +1,25 @@
+import { Colors } from "@/constants/theme";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { router } from "expo-router";
+import { useEffect } from "react";
+import { ActivityIndicator, Image, View } from "react-native";
+export default function Index(){
+    useEffect(() => {
+        const loadTasks = async () => {
+            const onboarded = await AsyncStorage.getItem('onboarded');
+            if (onboarded === 'true'){
+                router.replace('/(tabs)');
+            }else{
+                router.replace('/onboarding');
+            }
+        };
+        loadTasks();
+    
+    }, []);
+    return(
+        <View style={{flex:1, alignItems:'center', justifyContent:'center', backgroundColor:'#FFF'}}>
+            <Image style={{width:300, height:300, marginBottom:10}} source={require('../../assets/images/logo.jpeg')}/>
+            <ActivityIndicator size={60} color={Colors.primary}/>
+        </View>
+    )
+}
