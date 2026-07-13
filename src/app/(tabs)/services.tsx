@@ -18,13 +18,13 @@ export default function ServicesScreen(){
                 />
                  <View style={{marginTop:Spacing.three}}>
                     {
-                        services2.map(({title, sub, description, icon, features}, index)=>(
+                        services2.map(({title, sub, description, icon, features, timeline}, index)=>(
                             <Service
                                 title={title}
                                 description={sub}
                                 onPress={()=>router.navigate({
                                     pathname: '/detail',
-                                    params: { title, description, icon, features:JSON.stringify(features) }
+                                    params: { title, description, icon, features:JSON.stringify(features), timeline }
                                 })}
                                 style={{backgroundColor:theme['container']}}
                                 icon={icon}

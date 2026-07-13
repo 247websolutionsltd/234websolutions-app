@@ -44,7 +44,8 @@ export const services2 = [
             "Mobile-friendly and fast loading",
             "Ecommerce, blogs or booking systems, if needed",
             "One month of free support after launch"
-        ]
+        ],
+        timeline:"1 to 3 weeks, depending on scope"
     },
     {
         title:"Hosting and maintenance",
@@ -56,7 +57,8 @@ export const services2 = [
             "Regular backups and security updates",
             "SSL certificate setup and renewal",
             "Quick response if something breaks"
-        ]
+        ],
+        timeline:"Set up in 1 to 2 days, then ongoing"
     },
     {
         title:"Mobile app development",
@@ -68,7 +70,8 @@ export const services2 = [
             "Clean, intuitive design from the start",
             "App store submission and setup",
             "One month of free support after launch"
-        ]
+        ],
+        timeline:"3 to 8 weeks, depending on scope"
     },
     {
         title:"SEO and digital marketing",
@@ -80,7 +83,8 @@ export const services2 = [
             "Social media setup and management",
             "Ad campaigns on Google and social platforms",
             "Monthly performance reports"
-        ]
+        ],
+        timeline:"Ongoing, with results building over 1 to 3 months"
     },
     {
         title:"Branding and graphics",
@@ -92,7 +96,8 @@ export const services2 = [
             "Brand colours, fonts and guidelines",
             "Business cards and letterheads",
             "Social media templates"
-        ]
+        ],
+        timeline:"1 to 2 weeks, depending on scope"
     },
 ]
 

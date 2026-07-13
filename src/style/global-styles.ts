@@ -52,5 +52,10 @@ export const styles = StyleSheet.create({
         width:38,
         height:38,
         marginRight:Spacing.two
+    },
+    timeline:{
+        borderRadius:10,
+        padding:Spacing.three,
+        marginVertical:Spacing.two
     }
 });
