@@ -1,15 +1,27 @@
 export const projects = [
     {
-        title:"Retail ecommerce platform",
-        description:"Online store with payments and delivery tracking"
+        title:"Retail Ecommerce platform",
+        description:"Online store with payments and delivery tracking",
+        image: require('../../assets/images/e-commerce.png'),
+        url: "https://jobdone-73et.vercel.app/"
     },
     {
-        title:"Fintech client portal",
-        description:"Secure dashboard for account holders"
+        title:"Folks Furniture",
+        description:"Elegant website for a furniture company",
+        image: require('../../assets/images/furniture.png'),
+        url: "https://www.folksfurniture.com.ng/"
     },
     {
-        title:"School management app",
-        description:"Attendance, grading and parent updates"
+        title:"Ollarkomlaf Global Resources",
+        description:"Landing page for a Printing company",
+        image: require('../../assets/images/printing.png'),
+        url: "https://www.ollarkomlaf.com.ng/"
+    },
+    {
+        title:"Hopelatdam Enterprises",
+        description:"Landing page for a Printing company",
+        image: require('../../assets/images/hopelatdam.png'),
+        url: "https://www.hopelatdam.com.ng/"
     },
 ]
 
@@ -136,17 +148,21 @@ export const services2 = [
 export const socials = [
     {
         title:"Whatsapp",
-        icon:"Whatsapp"
+        icon:"Whatsapp",
+        url:"https://wa.link/zw5tz1",
+        type:'link'
     },
     {
         title:"Call us",
-        icon:"Phone"
-        
+        icon:"Phone",
+        url:`tel:+2348036893138`,
+        type:'link'
     },
     {
         title:"Email",
-        icon:"Mail"
-        
+        icon:"Mail",
+        url:"247websolutionsltd@gmail.com",
+        type:'email'
     }
 ]
 

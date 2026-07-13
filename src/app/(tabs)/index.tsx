@@ -66,8 +66,8 @@ export default function HomeScreen(){
           </View>
           <View>
             {
-              projects.map(({title,}, index)=>(
-              <Work title={title} style={{backgroundColor:theme['container']}} key={index}/>
+              projects.slice(0,3).map(({title, image, url}, index)=>(
+              <Work title={title} style={{backgroundColor:theme['container']}} key={index} image={image} url={url}/>
             ))
             }
           </View>

@@ -6,12 +6,19 @@ import { ThemedText } from "@/components/themed-text";
 import Top from "@/components/top2";
 import { Spacing } from "@/constants/theme";
 import { socials } from "@/data/projects-data";
+import useHook from "@/hooks/generalHook";
+import useInput from "@/hooks/inputHook";
 import { useTheme } from '@/hooks/use-theme';
 import { styles } from "@/style/global-styles";
 import { View } from "react-native";
 
 export default function ContactScreen(){
     const theme = useTheme();
+    const { handleLink } = useHook();
+    const {
+        name, handleName, nameError, contact, handleContact, contactError, message, handleMessage, messageError,
+        handleSend
+    } = useInput();
     return(
         <Container style={{paddingHorizontal:Spacing.three}}>
                 <Top
@@ -20,17 +27,14 @@ export default function ContactScreen(){
                 />
                 <View style={styles.socials}>
                     {
-                        socials.map(({title, icon}, index)=>(
+                        socials.map(({title, icon, url, type}, index)=>(
                             <Service 
                                 title={title} 
                                 style={{backgroundColor:theme['container']}} 
                                 icon={icon} 
                                 key={index}
                                 width={'31%'}
-                                // onPress={()=>router.navigate({
-                                //     pathname: '/detail',
-                                //     params: { title, description, icon, features:JSON.stringify(features), timeline }
-                                // })}
+                                onPress={()=>handleLink(url, type)}
                             />
                         ))
                     }
@@ -38,13 +42,13 @@ export default function ContactScreen(){
                 <View style={{marginBottom:Spacing.three}}>
                     <ThemedText>Or send us a message</ThemedText>
                     <View style={{marginVertical:Spacing.two}}>
-                        <Input label="Your name" placeholder="Enter your full name"/>
-                        <Input label="Phone or email" placeholder="How should we reach you?"/>
-                        <Input label="What do you need?" placeholder="Briefly describe your project" type="message"/>
+                        <Input label="Your name" placeholder="Enter your full name" handleText={handleName} value={name} error={nameError}/>
+                        <Input label="Phone or email" placeholder="How should we reach you?" handleText={handleContact} value={contact} error={contactError}/>
+                        <Input label="What do you need?" placeholder="Briefly describe your project" type="message" handleText={handleMessage} value={message} error={messageError}/>
                     </View>
                 </View>
                 <View>
-                    <Button onPress={()=>console.log("Hii")}>
+                    <Button onPress={handleSend}>
                         Send Message
                     </Button>
                     <ThemedText style={{textAlign:'center'}} type="small">

@@ -21,6 +21,8 @@ export default function WorkScreen(){
                     title={item.title}
                     description={item.description}
                     style={{backgroundColor:theme['container']}}
+                    image={item.image}
+                    url={item.url}
                     />
                 )}
                 keyExtractor={(i, index) => index.toString()}

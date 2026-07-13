@@ -1,23 +1,34 @@
-import { Spacing } from "@/constants/theme";
+import useHook from '@/hooks/generalHook';
+import { useTheme } from '@/hooks/use-theme';
 import { styles } from "@/style/global-styles";
+import { ImageBackground } from "expo-image";
 import { TouchableOpacity, TouchableOpacityProps, View } from "react-native";
 import { ThemedText } from "./themed-text";
 
 interface WorkProps extends TouchableOpacityProps{
     title: string;
     description?: string;
+    image: any;
+    url: string;
 }
-export default function Work({title, description, style}: WorkProps){
+export default function Work({title, description, image, url, style}: WorkProps){
+    const theme = useTheme();
+    const { handleLink } = useHook();
     return(
-        <TouchableOpacity style={[styles.work, style]}>
-            <View style={styles.workImage}/>
-            <View style={{padding:Spacing.three}}>
-                <ThemedText>{title}</ThemedText>
-                {
-                    description &&
-                    <ThemedText style={{fontWeight:400}}>{description}</ThemedText>
-                }
-            </View>
+        <TouchableOpacity onPress={()=>handleLink(url, "link")}>
+            <ImageBackground source={image}  style={[styles.work, style]} imageStyle={{borderTopLeftRadius:20, borderTopRightRadius:20}}>
+                {/* <Image
+                    source={require('../../assets/images/e-commerce.png')}
+                    style={styles.workImage}
+                /> */}
+                <View style={styles.workBottom}>
+                    <ThemedText>{title}</ThemedText>
+                    {
+                        description &&
+                        <ThemedText type='small' style={{fontWeight:400}}>{description}</ThemedText>
+                    }
+                </View>
+            </ImageBackground>
             
         </TouchableOpacity>
     )

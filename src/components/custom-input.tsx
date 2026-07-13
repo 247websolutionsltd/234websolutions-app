@@ -7,9 +7,11 @@ interface InputProps extends TextInputProps{
     label:string;
     type?:'message' | 'default';
     style?:ViewProps;
+    handleText:(text:string)=>void;
+    error:string;
 }
 
-export default function Input({label, type='default', placeholder, style}:InputProps){
+export default function Input({label, type='default', placeholder, handleText, value, error, style}:InputProps){
     return(
         <View style={[{marginVertical:Spacing.two},style]}>
             <ThemedText style={{fontWeight:400}}>{label}</ThemedText>
@@ -17,6 +19,8 @@ export default function Input({label, type='default', placeholder, style}:InputP
                 <TextInput 
                 placeholder={placeholder}
                 multiline={type === 'message'}
+                value={value}
+                onChangeText={(text:string)=>handleText(text)}
                 style={{
                     flex:1,
                     fontSize:16,
@@ -25,6 +29,10 @@ export default function Input({label, type='default', placeholder, style}:InputP
                 }}
                 />
             </View>
+            {
+                error &&
+                <ThemedText type="small" style={{color:'red'}}>{error}</ThemedText>
+            }
         </View>
     )
 }

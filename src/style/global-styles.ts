@@ -27,11 +27,17 @@ export const styles = StyleSheet.create({
     },
     work:{
         borderRadius:20,
-        marginVertical:Spacing.two
+        marginVertical:Spacing.two,
+        height:200,
+        justifyContent:'flex-end'
     },
     workImage:{
         height:120,
-        
+    },
+    workBottom:{
+        padding:Spacing.three, 
+        backgroundColor:"#F8F8F8CF",
+        paddingVertical:Spacing.two
     },
     top:{
         alignItems:'flex-start'

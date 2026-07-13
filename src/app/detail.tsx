@@ -4,6 +4,7 @@ import { ThemedText } from "@/components/themed-text";
 import Top from "@/components/top";
 import Icon from "@/constants/icons";
 import { Spacing } from "@/constants/theme";
+import useHook from "@/hooks/generalHook";
 import { useTheme } from '@/hooks/use-theme';
 import { styles } from "@/style/global-styles";
 import { useLocalSearchParams } from "expo-router";
@@ -13,6 +14,7 @@ import { View } from "react-native";
 
 export default function DetailScreen(){
     const theme = useTheme();
+    const { handleLink } = useHook();
     const { title, description, icon, features, timeline } = useLocalSearchParams<{ 
         title: string;
         description: string;
@@ -47,7 +49,7 @@ export default function DetailScreen(){
                         </View>
                     </View>
                 </View>
-                <Button onPress={()=>console.log('hii')} style={{marginVertical:Spacing.two}}>
+                <Button onPress={()=>handleLink("247websolutionsltd@gmail.com", 'email')} style={{marginVertical:Spacing.two}}>
                     Request this service
                 </Button>
         </Container>
