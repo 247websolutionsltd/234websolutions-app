@@ -156,12 +156,12 @@ export const socials = [
         title:"Call us",
         icon:"Phone",
         url:`tel:+2348036893138`,
-        type:'link'
+        type:'call'
     },
     {
         title:"Email",
         icon:"Mail",
-        url:"247websolutionsltd@gmail.com",
+        url:"",
         type:'email'
     }
 ]

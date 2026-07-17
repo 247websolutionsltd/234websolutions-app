@@ -7,7 +7,7 @@ export default function TabLayout(){
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors.primary, // Active blue color from your Figma design
-        tabBarInactiveTintColor: "#64748b",
+        tabBarInactiveTintColor: "#64748bAA",
         headerShown: false,
         tabBarLabelStyle: {
           fontSize: 13,

@@ -12,12 +12,18 @@ import { useTheme } from '@/hooks/use-theme';
 import { styles } from "@/style/global-styles";
 import { View } from "react-native";
 
+// interface SocialsProps {
+//     title: string;
+//     icon:keyof typeof icons;
+//     url:string;
+//     type:"link" | "call" | "email";
+// }
 export default function ContactScreen(){
     const theme = useTheme();
     const { handleLink } = useHook();
     const {
         name, handleName, nameError, contact, handleContact, contactError, message, handleMessage, messageError,
-        handleSend
+        handleSend, loading
     } = useInput();
     return(
         <Container style={{paddingHorizontal:Spacing.three}}>
@@ -25,7 +31,7 @@ export default function ContactScreen(){
                     title="Contact us"
                     description="Reach out any way that works for you."
                 />
-                <View style={styles.socials}>
+                    <View style={styles.socials}>
                     {
                         socials.map(({title, icon, url, type}, index)=>(
                             <Service 
@@ -48,7 +54,7 @@ export default function ContactScreen(){
                     </View>
                 </View>
                 <View>
-                    <Button onPress={handleSend}>
+                    <Button onPress={handleSend} isLoading={loading}>
                         Send Message
                     </Button>
                     <ThemedText style={{textAlign:'center'}} type="small">

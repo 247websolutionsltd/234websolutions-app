@@ -1,8 +1,9 @@
 import { useState } from "react";
-import useHook from "./generalHook";
+import { Alert } from "react-native";
+import { sendContactEmail } from "./email";
 
 export default function useInput(){
-    const { handleLink } = useHook();
+    const [ loading, setLoading ] = useState(false);
     const [ name, setName ] = useState("");
     const [ contact, setContact ] = useState("");
     const [ message, setMessage ] = useState("");
@@ -22,21 +23,38 @@ export default function useInput(){
         setMessage(message)
     }
     const handleSend = ()=>{
+        setLoading(true);
         if(name.length === 0){
-            setNameError("Please enter your name")
+            setNameError("Please enter your name");
+            setLoading(false);
         }else if(contact.length === 0){
-            setContactError("Please enter your contact information")
+            setContactError("Please enter your contact information");
+            setLoading(false);
         }else if(message.length === 0){
-            setMessageError("Please enter your message")
+            setMessageError("Please enter your message");
+            setLoading(false);
         }else{
-            handleLink( "...", "mail", message + "\n" + "\n" + name + "\n" + contact );
+            sendContactEmail({
+            name: name,
+            contact: contact,
+            message: message,
+            });
             setName("");
             setContact("");
             setMessage("");
+            setLoading(false);
+            Alert.alert('Message Sent', 'We will contact you soon', [
+            {
+                text: 'Cancel',
+                onPress: () => console.log('Cancel Pressed'),
+                style: 'cancel',
+            },
+            {text: 'OK', onPress: () => console.log('OK Pressed')},
+            ]);
         }
     }
 
     return{
-        name, contact, message, nameError, contactError, messageError, handleName, handleContact, handleMessage, handleSend
+        name, contact, message, nameError, contactError, messageError, handleName, handleContact, handleMessage, handleSend, loading
     }
 }

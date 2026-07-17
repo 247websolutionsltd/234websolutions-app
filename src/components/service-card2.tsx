@@ -7,7 +7,7 @@ import { ThemedText } from "./themed-text";
 
 interface ServiceProps extends TouchableOpacityProps{
     title:string;
-    icon?:keyof typeof icons;
+    icon:keyof typeof icons | 'Whatsapp';
     width: string | number;
     padding?: string | number;
     top?: string;

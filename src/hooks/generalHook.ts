@@ -17,29 +17,44 @@ export default function useHook() {
     subject: 'Project Development Request',
     body:'Hello, I came accross yor mobile app and would love to have my project created by 247websolutions Limited. Please let me know what it takes, all that is required from me and how long this project can be executed. I look forward to hearing fro you.'
   }
-  const handleLink = async (url:string, type:string, body=mailData.body) => {
-    const supported = await Linking.canOpenURL(url);
-    if (type === 'link'){
-      if (supported) {
-        await Linking.openURL(url);
-      } else {
-        Alert.alert(`Don't know how to open this URL: ${url}`);
-      }
-    }else{
-      const { to, subject } = mailData;
-      const mailLink = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const handleLink = async (
+      url: string,
+      type: "link" | "call" | "email",
+      body = mailData.body
+    ) => {
       try {
-        const supported = await Linking.canOpenURL(mailLink);
-        if (supported) {
-          await Linking.openURL(mailLink);
-        } else {
-          console.log("Email apps are not available on this device");
+        switch (type) {
+          case "link":
+          case "call": {
+            try {
+              await Linking.openURL(url);
+            } catch (e) {
+              Alert.alert("Phone app unavailable");
+            }
+            break;
+          }
+
+          case "email": {
+            const { to, subject } = mailData;
+
+            const mailLink =
+              `mailto:${to}` +
+              `?subject=${encodeURIComponent(subject)}` +
+              `&body=${encodeURIComponent(body)}`;
+
+            try {
+              await Linking.openURL(mailLink);
+            } catch (e) {
+              Alert.alert("Phone app unavailable");
+            }
+            break;
+          }
         }
       } catch (error) {
-        console.error("An error occurred", error);
+        console.error(error);
+        Alert.alert("Something went wrong.");
       }
-    }
-  };
+    };
   
   return {
     isLoading,
