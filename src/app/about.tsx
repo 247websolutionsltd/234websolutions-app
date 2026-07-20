@@ -6,6 +6,7 @@ import Top from "@/components/top";
 import { Spacing } from "@/constants/theme";
 import { useTheme } from '@/hooks/use-theme';
 import { styles } from "@/style/global-styles";
+import { router } from "expo-router";
 import { Headphones, Users, Zap } from "lucide-react-native";
 import { View } from "react-native";
 
@@ -57,7 +58,7 @@ export default function DetailScreen(){
                     </View>
                     
                 </View>
-                <Button onPress={()=>console.log('hii')} style={{marginVertical:Spacing.two}}>
+                <Button onPress={()=>router.navigate('/contact')} style={{marginVertical:Spacing.two}}>
                     Contact us
                 </Button>
         </Container>

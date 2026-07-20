@@ -28,7 +28,7 @@ export const projects = [
 
 export const services1 = [
     {
-        title:"Web design",
+        title:"Web Design & Development",
         icon:"Globe",
         description:"We build fast, responsive websites for businesses of every size, from corporate sites to full online stores.",
         features:[
@@ -38,18 +38,6 @@ export const services1 = [
             "One month of free support after launch"
         ],
         timeline:"1 to 3 weeks, depending on scope"
-    },
-    {
-        title:"Hosting",
-        icon:"Server",
-        description:"We keep your website online, secure and up to date, so you never have to worry about it.",
-        features:[
-            "Reliable uptime monitoring",
-            "Regular backups and security updates",
-            "SSL certificate setup and renewal",
-            "Quick response if something breaks"
-        ],
-        timeline:"Set up in 1 to 2 days, then ongoing"
     },
     {
         title:"App Development",
@@ -92,19 +80,6 @@ export const services2 = [
         timeline:"1 to 3 weeks, depending on scope"
     },
     {
-        title:"Hosting and maintenance",
-        sub:"Uptime, security, support",
-        description:"We keep your website online, secure and up to date, so you never have to worry about it.",
-        icon:"Server",
-        features:[
-            "Reliable uptime monitoring",
-            "Regular backups and security updates",
-            "SSL certificate setup and renewal",
-            "Quick response if something breaks"
-        ],
-        timeline:"Set up in 1 to 2 days, then ongoing"
-    },
-    {
         title:"Mobile app development",
         sub:"iOS and Android apps",
         description:"We design and build apps for iOS and Android that are simple to use and easy to maintain.",
@@ -129,19 +104,6 @@ export const services2 = [
             "Monthly performance reports"
         ],
         timeline:"Ongoing, with results building over 1 to 3 months"
-    },
-    {
-        title:"Branding and graphics",
-        sub:"Logos, identity, print",
-        description:"We create a visual identity that makes your business memorable and professional.",
-        icon:"Palette",
-        features:[
-            "Custom logo design",
-            "Brand colours, fonts and guidelines",
-            "Business cards and letterheads",
-            "Social media templates"
-        ],
-        timeline:"1 to 2 weeks, depending on scope"
     },
 ]
 
