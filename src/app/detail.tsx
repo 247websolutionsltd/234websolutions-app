@@ -27,7 +27,7 @@ export default function DetailScreen(){
         <Container style={{paddingHorizontal:Spacing.three, justifyContent:'space-between',}} edges={['top', 'bottom']}>
                 <View>
                     <Top text="Service details"/>
-                    <View style={{margin:Spacing.three}}><Icon name={icon} size={28}/></View>
+                    <View style={{margin:Spacing.three}}><Icon name={icon} size={28} color={theme.text}/></View>
                     <ThemedText type="subtitle">{title}</ThemedText>
                     <ThemedText>{description}</ThemedText>
                     
