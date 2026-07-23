@@ -4,31 +4,34 @@
     "slug": "247websolutions",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/logo.jpeg",
+    "icon": "./assets/images/logo.png",
     "scheme": "247websolutions",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/images/logo.jpeg"
+      "icon": "./assets/images/logo.png"
     },
     "android": {
       "adaptiveIcon": {
-      "backgroundColor": "#FFFFFF",
-      "foregroundImage": "./assets/images/logo.jpeg",
-       "intentFilters": [
-        {
-          "action": "VIEW",
-          "data": [
-            {
-              "scheme": "mailto"
-            },
-            {
-              "scheme": "tel"
-            }
-          ],
-          "category": ["BROWSABLE", "DEFAULT"]
-        }
-      ]
-    },
+        "backgroundColor": "#FFFFFF",
+        "foregroundImage": "./assets/images/logo.png",
+        "intentFilters": [
+          {
+            "action": "VIEW",
+            "data": [
+              {
+                "scheme": "mailto"
+              },
+              {
+                "scheme": "tel"
+              }
+            ],
+            "category": [
+              "BROWSABLE",
+              "DEFAULT"
+            ]
+          }
+        ]
+      },
       "predictiveBackGestureEnabled": false,
       "package": "com.websolutions247.app"
     },
@@ -42,7 +45,7 @@
         "expo-splash-screen",
         {
           "backgroundColor": "#FFF",
-          "image": "./assets/images/logo.jpeg",
+          "image": "./assets/images/logo.png",
           "imageWidth": 200,
           "resizeMode": "contain"
         }
@@ -55,8 +58,9 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "e044c1fd-dcd0-4b3c-b271-67fc3e50fbc8"
+        "projectId": "23bbe3de-4f01-4727-92f7-bbd7df5a4c00"
       }
-    }
+    },
+    "owner": "websolutions247"
   }
 }

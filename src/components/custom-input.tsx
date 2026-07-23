@@ -1,4 +1,5 @@
 import { Spacing } from "@/constants/theme";
+import { useTheme } from "@/hooks/use-theme";
 import { styles } from "@/style/global-styles";
 import { TextInput, TextInputProps, View, ViewProps } from "react-native";
 import { ThemedText } from "./themed-text";
@@ -12,12 +13,14 @@ interface InputProps extends TextInputProps{
 }
 
 export default function Input({label, type='default', placeholder, handleText, value, error, style}:InputProps){
+    const theme = useTheme();
     return(
         <View style={[{marginVertical:Spacing.two},style]}>
             <ThemedText style={{fontWeight:400}}>{label}</ThemedText>
-            <View style={styles.inputView}>
+            <View style={[styles.inputView, {borderColor:theme.border}]}>
                 <TextInput 
                 placeholder={placeholder}
+                placeholderTextColor={theme.text}
                 multiline={type === 'message'}
                 value={value}
                 onChangeText={(text:string)=>handleText(text)}

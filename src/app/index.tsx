@@ -1,4 +1,4 @@
-import { Colors } from "@/constants/theme";
+import { useTheme } from "@/hooks/use-theme";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { router } from "expo-router";
 import { useEffect } from "react";
@@ -16,10 +16,11 @@ export default function Index(){
         loadTasks();
     
     }, []);
+    const theme = useTheme();
     return(
         <View style={{flex:1, alignItems:'center', justifyContent:'center', backgroundColor:'#FFF'}}>
-            <Image style={{width:300, height:300, marginBottom:10}} source={require('../../assets/images/logo.jpeg')}/>
-            <ActivityIndicator size={60} color={Colors.primary}/>
+            <Image style={{width:300, height:300, marginBottom:10}} source={require('../../assets/images/logo.png')}/>
+            <ActivityIndicator size={60} color={theme.primary}/>
         </View>
     )
 }

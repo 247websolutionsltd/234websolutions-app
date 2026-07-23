@@ -1,12 +1,13 @@
-import { Colors } from '@/constants/theme';
+import { useTheme } from '@/hooks/use-theme';
 import { Tabs } from 'expo-router';
 import { Briefcase, Home, List, Phone } from 'lucide-react-native';
 
 export default function TabLayout(){
+  const theme = useTheme();
   return(
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors.primary, // Active blue color from your Figma design
+        tabBarActiveTintColor: theme.primary, // Active blue color from your Figma design
         tabBarInactiveTintColor: "#64748bAA",
         headerShown: false,
         tabBarLabelStyle: {

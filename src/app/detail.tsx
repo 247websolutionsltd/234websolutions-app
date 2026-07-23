@@ -36,7 +36,7 @@ export default function DetailScreen(){
                         {
                             featuresArr.map((item, index)=>(
                                 <View key={index} style={[styles.row, {marginVertical:Spacing.one}]}>
-                                    <Check size={20} color={'blue'}/><ThemedText style={{marginLeft:12, lineHeight:Spacing.three}}>{item}</ThemedText>
+                                    <Check size={20} color={theme.primary}/><ThemedText style={{marginLeft:12, lineHeight:Spacing.three}}>{item}</ThemedText>
                                 </View>
                             ))
                         }
@@ -45,7 +45,7 @@ export default function DetailScreen(){
                         <ThemedText>Typical Timeline</ThemedText>
                         <View style={[styles.row, styles.timeline, {backgroundColor:theme['container']}]}>
                             <Clock size={23}/>
-                            <ThemedText style={{flexShrink:1, paddingLeft:Spacing.three}}>{timeline}</ThemedText>
+                            <ThemedText style={{flexShrink:1, paddingLeft:Spacing.three, color:"#000"}}>{timeline}</ThemedText>
                         </View>
                     </View>
                 </View>

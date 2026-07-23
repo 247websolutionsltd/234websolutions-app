@@ -1,10 +1,10 @@
+import { useTheme } from "@/hooks/use-theme";
 import {
   ActivityIndicator,
   StyleSheet,
   TouchableOpacity,
   ViewProps,
 } from "react-native";
-import { Colors } from "../constants/theme";
 import { ThemedText } from "./themed-text";
 
 type Type = "primary" | "secondary";
@@ -36,23 +36,28 @@ export default function Button({
   ) => {
     if (type === "primary") {
       return {
-        backgroundColor: buttonColor || Colors.primary,
+        backgroundColor: buttonColor || theme.primary,
       };
     } else {
       return {
-        borderColor: buttonColor || Colors.secondary,
+        borderColor: buttonColor || theme.secondary,
       };
     }
   };
+  const theme = useTheme();
   return (
     <TouchableOpacity
     disabled={disabled}
       onPress={onPress}
       style={[
         styles.button,
-        styles[type],
+        
         handleTypeBackground(type, buttonColor),
-        {opacity:disabled?0.6:1, padding:textSize || 15},
+        {opacity:disabled?0.6:1, 
+          padding:textSize || 15, 
+          backgroundColor:theme[type],
+          borderWidth:type === 'secondary' ? 1 : 0
+        },
         style,
       ]}
     >
@@ -63,7 +68,7 @@ export default function Button({
           style = {{
             color: type === "primary"
               ? textColor || "#FFF"
-              : textColor || buttonColor || Colors.secondary,
+              : textColor || buttonColor || theme.secondary,
             fontSize: textSize || 16
           }}
           {...props}
@@ -77,12 +82,5 @@ const styles = StyleSheet.create({
   button: {
     borderRadius: 10,
     alignItems: "center",
-  },
-  primary: {
-    backgroundColor: Colors.primary,
-  },
-  secondary: {
-    borderWidth: 1,
-    borderColor: Colors.secondary,
   },
 });

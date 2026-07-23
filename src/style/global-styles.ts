@@ -17,6 +17,11 @@ export const styles = StyleSheet.create({
         alignItems:'center',
         justifyContent:'center'
     },
+    homeCard:{
+        padding:Spacing.five,
+        borderRadius:20,
+        marginVertical:10
+    },
     service:{
         borderRadius:20,
         height:120
@@ -57,7 +62,8 @@ export const styles = StyleSheet.create({
     logo:{
         width:38,
         height:38,
-        marginRight:Spacing.two
+        marginRight:Spacing.two,
+        borderRadius:100
     },
     timeline:{
         borderRadius:10,
@@ -71,7 +77,6 @@ export const styles = StyleSheet.create({
     },
     inputView:{
         borderWidth:1,
-        borderColor:"#00000030",
         borderRadius:10,
         marginTop:Spacing.one,
         padding:Spacing.two

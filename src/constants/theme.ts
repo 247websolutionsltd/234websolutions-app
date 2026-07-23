@@ -8,8 +8,6 @@ import '@/global.css';
 import { Platform } from 'react-native';
 
 export const Colors = {
-  primary: '#1F2937',
-  secondary:'#FFF',
   light: {
     text: '#000000',
     background: '#ffffff',
@@ -17,14 +15,20 @@ export const Colors = {
     backgroundElement: '#F0F0F3',
     backgroundSelected: '#E0E1E6',
     textSecondary: '#60646C',
+    primary: '#1F2937',
+    secondary:'#FFF',
+    border:"#00000030"
   },
   dark: {
     text: '#ffffff',
-    background: '#000000',
-    container: '#DEDEDE',
+    background: '#1F2937',
+    container: '#dde0e3',
     backgroundElement: '#212225',
     backgroundSelected: '#2E3135',
     textSecondary: '#B0B4BA',
+    primary: '#056cfc',
+    secondary:'#FFF',
+    border:"#ACACAC"
   },
 } as const;
 

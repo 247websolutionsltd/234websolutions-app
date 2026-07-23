@@ -21,11 +21,11 @@ export default function Service({title, icon, style, width='auto', padding=0, to
                     <Whatsapp width={22} height={22}/>
                     :
                     top ?
-                    <ThemedText type="subtitle">{top}</ThemedText>
+                    <ThemedText type="subtitle" style={{color:"#000"}}>{top}</ThemedText>
                     :
                     <Icon name={icon} size={22}/>
                 }  
-                <ThemedText type={top? "medium" : "default"} style={{marginTop:8, textAlign:'center'}}>{title}</ThemedText>
+                <ThemedText type={top? "medium" : "default"} style={{marginTop:8, textAlign:'center', color:"#000"}}>{title}</ThemedText>
             </TouchableOpacity>
         </View>
     )

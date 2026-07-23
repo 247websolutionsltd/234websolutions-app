@@ -22,10 +22,10 @@ export default function Work({title, description, image, url, style}: WorkProps)
                     style={styles.workImage}
                 /> */}
                 <View style={styles.workBottom}>
-                    <ThemedText>{title}</ThemedText>
+                    <ThemedText style={{color:'#000'}}>{title}</ThemedText>
                     {
                         description &&
-                        <ThemedText type='small' style={{fontWeight:400}}>{description}</ThemedText>
+                        <ThemedText type='small' style={{fontWeight:400, color:'#000'}}>{description}</ThemedText>
                     }
                 </View>
             </ImageBackground>

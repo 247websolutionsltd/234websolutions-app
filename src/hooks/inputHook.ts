@@ -46,10 +46,9 @@ export default function useInput(){
             Alert.alert('Message Sent', 'We will contact you soon', [
             {
                 text: 'Cancel',
-                onPress: () => console.log('Cancel Pressed'),
                 style: 'cancel',
             },
-            {text: 'OK', onPress: () => console.log('OK Pressed')},
+            {text: 'OK'},
             ]);
         }
     }

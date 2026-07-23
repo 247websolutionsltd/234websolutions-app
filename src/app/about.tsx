@@ -41,17 +41,17 @@ export default function DetailScreen(){
                     <View style={{marginVertical:Spacing.three}}>
                         <ThemedText style={{lineHeight:Spacing.five}}>What's included</ThemedText>
                         <View style={[styles.row, {marginVertical:Spacing.two}]}>
-                            <Zap size={20} color={'blue'}/><ThemedText style={{marginLeft:12, lineHeight:Spacing.three}}>
+                            <Zap size={20} color={theme.primary}/><ThemedText style={{marginLeft:12, lineHeight:Spacing.three}}>
                                 Fast turnaround without cutting corners
                             </ThemedText>
                         </View>
                         <View style={[styles.row, {marginVertical:Spacing.two}]}>
-                            <Users size={20} color={'blue'}/><ThemedText style={{marginLeft:12, lineHeight:Spacing.three}}>
+                            <Users size={20} color={theme.primary}/><ThemedText style={{marginLeft:12, lineHeight:Spacing.three}}>
                                 A dedicated team from design to launch
                             </ThemedText>
                         </View>
                         <View style={[styles.row, {marginVertical:Spacing.two}]}>
-                            <Headphones size={20} color={'blue'}/><ThemedText style={{marginLeft:12, lineHeight:Spacing.three}}>
+                            <Headphones size={20} color={theme.primary}/><ThemedText style={{marginLeft:12, lineHeight:Spacing.three}}>
                                 Support that continues after the project ends
                             </ThemedText>
                         </View>

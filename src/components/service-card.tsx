@@ -17,8 +17,8 @@ export default function Service({ title, description, icon, onPress, style }: Se
                 <Icon name={icon} size={22}/>
             </View>
             <View style={{alignSelf:'flex-start', maxWidth:'56%'}}>
-                <ThemedText style={{}}>{title}</ThemedText>
-                 <ThemedText type="medium" style={{fontWeight:400, }}>{description}</ThemedText>
+                <ThemedText style={{color:"#000"}}>{title}</ThemedText>
+                 <ThemedText type="medium" style={{fontWeight:400, color:"#000"}}>{description}</ThemedText>
             </View>
             <View style={styles.cardIcon}>
                 <ChevronRight size={25}/>
